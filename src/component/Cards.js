@@ -4,7 +4,8 @@ const Cards = ({cardData})=> {
     
     return (
         <div className="cards section">
-            {cardData?.map(cardItem => (<Card key={cardItem.data.data.id} cardList = {cardItem}/>))}
+            {cardData?.map(cardItem => (
+            <Card key={cardItem.info.id} res = {cardItem}/>))}
         </div>
     )
 }

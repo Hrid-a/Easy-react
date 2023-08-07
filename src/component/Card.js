@@ -1,6 +1,6 @@
 import {RES_URL} from '../utils/cons';
-const Card = ({cardList})=> {
-    const {name, cuisines, costForTwo, deliveryTime, avgRating, cloudinaryImageId} = cardList?.data?.data
+const Card = ({res})=> {
+    const {name, cuisines, costForTwo, deliveryTime, avgRating, cloudinaryImageId} = res?.info
     return (
         <article className="card">
             <div className="card-image">
@@ -15,7 +15,7 @@ const Card = ({cardList})=> {
             <ul >
               <li>{avgRating}star</li>
               <li>{deliveryTime}</li>
-              <li>{costForTwo / 2} for TWO</li>
+              <li>{costForTwo}</li>
             </ul>
             </div>
         </article>
