@@ -123,16 +123,40 @@ header {
     padding-block-end: 2rem;
 }
 
-.btn {
-    display: block;
-    padding: 0.9rem 1.3rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    background-color: transparent;
-    color: $main-color;
-    text-align: center;
-    margin: 0 auto;
-    border-color: 1px solid #eee;
-    border-radius: 6px;
-    cursor: pointer;
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+    flex-wrap: wrap;
+    .btn {
+        display: block;
+        padding: 0.9rem 1.3rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        background-color: transparent;
+        color: $main-color;
+        text-align: center;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    .btn:hover {
+        border-color: #eee;
+    }
+
+    .searchInput {
+        display: block;
+        padding: 10px 1.5rem;
+        border-radius: 10px;
+        outline-color: transparent;
+        border: 2px solid transparent;
+        border-bottom-color: $main-color;
+    }
+
+    .searchInput:focus-within {
+        outline-color: #eee;
+        border-color: transparent;
+    }
+
 }
