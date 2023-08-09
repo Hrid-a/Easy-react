@@ -65,7 +65,7 @@ header {
 }
 
 .section {
-    padding-block: 4rem;
+    padding-block: 2rem;
 }
 
 .cards {
@@ -79,6 +79,11 @@ header {
         border-radius: 10px;
         overflow: hidden;
         border: 1px solid transparent;
+        &-anchor {
+            text-decoration: none;
+            color: inherit;
+        }
+
         &-image {
             width: 227px;
             border-radius: 10px 10px 0 0;
@@ -160,3 +165,82 @@ header {
     }
 
 }
+
+
+.error-page {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+body:has(.issues){
+    background-color: #37718e;
+    .footer {
+        display: none;
+    }
+}
+.issues {
+    color: white;
+    padding: 1rem;
+}
+.support {
+    padding: 2.5rem;
+    background-color: white;
+    color: black;
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    &__content__issues {
+            padding-block: 1rem;
+            padding-inline:  1rem 0;
+            background-color: #edf1f7;
+            color: #808390;
+            div {
+                padding: 1rem;
+            }
+            .title {
+                text-decoration: none;
+                color: inherit;
+            }
+            
+            .active-link {
+                background-color: white;
+                color: black;
+            }
+            
+
+    }
+    &__content__support__content__issues--container {
+        padding: 1rem 2rem;
+        h2 {
+            margin-bottom: .9rem;
+        }
+    }
+
+}
+
+.support__answer {
+    div {
+        padding-block: 1.5rem;
+    border-bottom: 1px solid #eee;
+    color: #808390;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    }
+
+    p:hover {
+        color: $main-color;
+    }
+
+    .d-none {
+        display: none;
+    }
+}
+
