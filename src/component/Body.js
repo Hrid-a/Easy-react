@@ -1,21 +1,15 @@
 import Heading from './Heading';
 import Cards from   './Cards';
-import { cardlist } from '../utils/data';
 import { useEffect, useState } from 'react';
+import { useCards } from '../utils/useCards';
 const Body = ()=> {
-    const [cards, setCards] = useState([]);
     const [filteredCard, setFilteredCard] = useState([]);
     const [searchValue, setSearchValue] = useState("");
-    useEffect(()=> {
-        fetchData()
-    }, [])
+    const cards = useCards();
 
-    const fetchData = async ()=> {
-        const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        const resData = await response.json();
-        setCards(resData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredCard(resData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    }
+    useEffect(()=> {
+        if (cards.length > 0) setFilteredCard(cards);
+    }, [cards])
 
     const handleClick = ()=> {
         const resCard = cards.filter(card => card.info.avgRating > 4)
@@ -29,7 +23,8 @@ const Body = ()=> {
         setFilteredCard(filterdData);
     }
 
-    return cards?.length === 0? <h2>Data is fetching</h2>:(
+    
+    return cards.length === 0?  <h2>Data is fetching</h2>: (
         <section className="section">
             <div className="container">
                 <Heading action = {handleClick} searchValue={searchValue} change = {handleChange}/>

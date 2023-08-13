@@ -1,19 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
+import { useIssues } from "../utils/useIssues";
 
 const IssueTypes = ()=> {
-    const [issueTypes, setIssuesTypes] = useState([]);
     const [activeId, setActiveId] = useState("partner-onboarding");
-    useEffect(()=>{
-        fetchData()
-    }, [])
-
-    const fetchData = async()=> {
-        const response = await fetch("https://www.swiggy.com/dapi/support?");
-        const data = await response.json();
-        setIssuesTypes(data?.data?.issueTypes?.data);
-    }
-
+    const issueTypes = useIssues();
     const handleClick = (id)=> {
         setActiveId(id)
     }

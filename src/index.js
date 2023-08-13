@@ -8,9 +8,10 @@ import Footer from './component/Footer';
 import Error from "./component/Error";
 import Help from   "./component/Help";
 import Menu from "./component/Menu";
-
+import { useOnlineStatus } from "./utils/useOnlineStatus";
 const App = ()=> {
-    return (
+    const online = useOnlineStatus();
+    return !online ? <h1>You Are offline </h1>:(
         <>
             <Header />
             <Outlet />
