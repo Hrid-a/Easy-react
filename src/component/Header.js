@@ -2,7 +2,11 @@ import React from "react";
 import { ReactDOM } from "react-dom/client";
 import { Link } from "react-router-dom";
 import {CDN_URL} from "../utils/cons";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+
 const Header = () => {
+    const cartItems = useSelector((store)=>store.cart.items);
+    
     return (
         <header>
             <div  className="container">
@@ -18,7 +22,7 @@ const Header = () => {
                         <li className="nav__item">Offers</li>
                         <li className="nav__item"><Link to={"/support"}>Help</Link></li>
                         <li className="nav__item">Sign in</li>
-                        <li className="nav__item">Cart</li>
+                        <li className="nav__item"><Link to={"/cart"} >Cart- ({cartItems.length}items)</Link></li>
                     </ul>
                 </nav>
             </div>

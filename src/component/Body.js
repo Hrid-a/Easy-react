@@ -24,7 +24,7 @@ const Body = ()=> {
     }
 
     
-    return cards.length === 0?  <h2>Data is fetching</h2>: (
+    return cards.length === 0?  <h2>Data is fetching</h2>:(
         <section className="section">
             <div className="container">
                 <Heading action = {handleClick} searchValue={searchValue} change = {handleChange}/>

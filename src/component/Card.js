@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom';
 import {RES_URL} from '../utils/cons';
+import { BiSolidCartAdd } from "react-icons/bi";
+import { useDispatch } from "react-redux/es/hooks/useDispatch";
+import { addItem } from '../redux/cartSlice';
+
 const Card = ({res})=> {
     const {id,name, cuisines, costForTwo, deliveryTime, avgRating, cloudinaryImageId} = res?.info
+    const dispatch = useDispatch()
+    const handleclick = (item)=> {
+      dispatch( addItem(item));
+    }
     return (
         <article className="card">
             <Link to={"restaurants/" + id} className='card-anchor'>
@@ -21,6 +29,8 @@ const Card = ({res})=> {
               </ul>
               </div>
             </Link>
+            
+              <BiSolidCartAdd className='icon' onClick={()=>handleclick({id, name, costForTwo, cloudinaryImageId})}/>
         </article>
     )
 }
